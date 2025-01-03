@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">UnipiPLIShopping</string>
+    <!--> LOGIN <-->
+    <string name="login">Login</string>
+    <string name="username_hint">username</string>
+    <string name="password_hint">password</string>
+    <string name="login_button">login</string>
+
+    <!--> MAIN PAGE <-->
+
+
+
+    <!--> ITEM PAGE <-->
+
+
+
+
+    <!--> SETTINGS <-->
+
+
+
+
+
+</resources>
