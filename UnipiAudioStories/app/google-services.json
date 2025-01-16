@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "181503824808",
+    "project_id": "tell-a-tale-74c6a",
+    "storage_bucket": "tell-a-tale-74c6a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:181503824808:android:89ef1ea1fd3ba6110d839d",
+        "android_client_info": {
+          "package_name": "com.despkontopoulou.tell_a_tale"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3JME-68316OcCHkKHhFbcVCeF3F0kL70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
