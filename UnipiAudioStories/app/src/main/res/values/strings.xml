@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tell-a-Tale</string>
+    <string name="app_title">Tell-a-Tale</string>
+    <string name="title_activity_stories_main">stories_main</string>
 </resources>
