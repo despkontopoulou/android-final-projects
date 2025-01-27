@@ -2,4 +2,6 @@
     <string name="app_name">Tell-a-Tale</string>
     <string name="app_title">Tell-a-Tale</string>
     <string name="title_activity_stories_main">stories_main</string>
+    <string name="audible_str">Audible Stories</string>
+    <string name="motto">Guiding little dreamers through starry tales</string>
 </resources>

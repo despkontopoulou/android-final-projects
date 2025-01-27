@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/crimson_text</item>
+        <item>@font/dawning_of_a_new_day</item>
         <item>@font/source_serif_pro</item>
         <item>@font/source_serif_pro_extralight</item>
         <item>@font/source_serif_pro_semibold</item>
