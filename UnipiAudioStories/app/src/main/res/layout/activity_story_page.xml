@@ -43,18 +43,6 @@
             android:layout_height="619dp">
 
             <!-- Image of the Chapter -->
-            <ImageView
-                android:id="@+id/chapterImage"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="28dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.35"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.5"
-                app:srcCompat="@drawable/placeholder" />
 
             <!-- Chapter Text -->
 
@@ -64,48 +52,69 @@
 
             <!-- Story Title -->
 
+            <ImageView
+                android:id="@+id/chapterImage"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.35"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5"
+                app:srcCompat="@drawable/placeholder" />
+
             <TextView
                 android:id="@+id/chapterText"
-                android:layout_width="414dp"
-                android:layout_height="211dp"
-                android:layout_marginTop="41dp"
+                android:layout_width="298dp"
+                android:layout_height="173dp"
+                android:fontFamily="@font/basic"
                 android:gravity="center"
                 android:padding="16dp"
+                android:paddingStart="5dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
                 android:text="Chapter text goes here..."
+                android:textAlignment="gravity"
                 android:textColor="#2F5871"
-                android:textSize="18sp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chapterImage" />
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/arrowRight"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="16dp"
                 android:src="@drawable/next_page"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chapterText" />
+                app:layout_constraintTop_toBottomOf="@+id/chapterText"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/arrowLeft"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_marginStart="16dp"
                 android:src="@drawable/previous_page"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chapterText" />
+                app:layout_constraintTop_toBottomOf="@+id/chapterText"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/crimson_text"
+                android:fontFamily="@font/source_serif_pro_semibold"
                 android:text="Story Title"
                 android:textAlignment="center"
                 android:textColor="#5A83B0"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/chapterText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/chapterImage" />

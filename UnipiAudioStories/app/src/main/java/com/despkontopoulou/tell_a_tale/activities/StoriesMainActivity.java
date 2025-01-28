@@ -35,7 +35,7 @@ public class StoriesMainActivity extends AppCompatActivity {
             return insets;
         });
         storyList=new ArrayList<>();
-        StoryRepository storyRepository = new StoryRepository();
+        StoryRepository storyRepository = new StoryRepository(this);
         storyRepository.getStories(new StoryRepository.StoryResponse(){
             @Override
             public void onSuccess(List<Story> stories){

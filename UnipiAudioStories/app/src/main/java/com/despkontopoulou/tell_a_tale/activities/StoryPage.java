@@ -2,6 +2,7 @@ package com.despkontopoulou.tell_a_tale.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,15 +18,19 @@ import com.despkontopoulou.tell_a_tale.R;
 import com.despkontopoulou.tell_a_tale.helpers.Chapter;
 import com.despkontopoulou.tell_a_tale.helpers.Story;
 import com.despkontopoulou.tell_a_tale.helpers.StoryRepository;
-
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.Voice;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class StoryPage extends AppCompatActivity {
+public class StoryPage extends AppCompatActivity implements TextToSpeech.OnInitListener {
+    private TextToSpeech tts;
+    private String selectedVoice = "voice_1"; //default
     private int currentChapterIndex = 0;
     private List<Chapter> chapters = new ArrayList<>();
     private TextView chapterText, storyTitle;
-    private ImageView chapterImage, arrowLeft, arrowRight;
+    private ImageView chapterImage, arrowLeft, arrowRight, voice1Icon, voice2Icon;
     private StoryRepository storyRepository;
 
     @Override
@@ -43,7 +48,16 @@ public class StoryPage extends AppCompatActivity {
         storyTitle = findViewById(R.id.textView6);
         arrowLeft = findViewById(R.id.arrowLeft);
         arrowRight = findViewById(R.id.arrowRight);
-        storyRepository = new StoryRepository();
+        storyRepository = new StoryRepository(this);
+        //voice1Icon = findViewById(R.id.voice_1);
+        //voice2Icon = findViewById(R.id.voice_2);
+        tts = new TextToSpeech(this, this);
+
+        // Get selectedVoice from the Intent
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("selectedVoice")) {
+            selectedVoice = intent.getStringExtra("selectedVoice");
+        }
 
         loadStoryData();
         displayChapter(currentChapterIndex);
@@ -64,7 +78,44 @@ public class StoryPage extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+            // Set the language to US English or another default language
+            int result = tts.setLanguage(Locale.US);
 
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "The selected language is not supported.");
+            } else {
+                Log.d("TTS", "TextToSpeech initialized successfully.");
+                // Optional: Configure the voice if `selectedVoice` is specific
+                setTtsVoice(selectedVoice);
+                if (!chapters.isEmpty()) {
+                    speakText(chapters.get(currentChapterIndex).getText());
+                }
+            }
+        } else {
+            Log.e("TTS", "Initialization failed.");
+        }
+    }
+
+    // Set the TextToSpeech voice based on the selected option
+    private void setTtsVoice(String voice) {
+        if (tts == null) return;
+
+        for (Voice availableVoice : tts.getVoices()) {
+            if (voice.equals("voice_1") && availableVoice.getName().contains("en-us")) {
+                tts.setVoice(availableVoice);
+                return;
+            } else if (voice.equals("voice_2") && availableVoice.getName().contains("en-gb")) {
+                tts.setVoice(availableVoice);
+                return;
+            }
+        }
+
+        // Fallback to default if the desired voice is not available
+        Log.e("TTS", "Desired voice not found. Using default.");
+    }
     // Load chapters (You can replace this with your actual data)
     private void loadStoryData() {
         Intent intent = getIntent();
@@ -99,10 +150,26 @@ public class StoryPage extends AppCompatActivity {
             Glide.with(this)
                     .load(currentChapter.getPicture())
                     .into(chapterImage);
-
+            speakText(currentChapter.getText());
             // Disable buttons based on chapter index
             arrowLeft.setEnabled(index > 0);
             arrowRight.setEnabled(index < chapters.size() - 1);
         }
     }
+    private void speakText(String text) {
+        if (tts != null && tts.isSpeaking()) {
+            tts.stop();
+        }
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
+
 }

@@ -66,15 +66,33 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
             intent.putExtra("storyId", story.getId());
             context.startActivity(intent);
         });
+        // click listener for the voice icons
+        holder.voice1Icon.setOnClickListener(v -> {
+            navigateToStoryPage(story, "voice_1");
+        });
+
+        holder.voice2Icon.setOnClickListener(v -> {
+            navigateToStoryPage(story, "voice_2");
+        });
+
+        // Click listener for the card itself (default voice)
+        holder.itemView.setOnClickListener(v -> {
+            navigateToStoryPage(story, "voice_1"); // Default to voice_1
+        });
     }
 
     @Override
     public int getItemCount() {
         return stories.size();
     }
-
+    private void navigateToStoryPage(Story story, String selectedVoice) {
+        Intent intent = new Intent(context, StoryPage.class);
+        intent.putExtra("storyId", story.getId()); // Pass storyId to StoryPage
+        intent.putExtra("selectedVoice", selectedVoice); // Pass selectedVoice to StoryPage
+        context.startActivity(intent);
+    }
     public static class StoryViewHolder extends RecyclerView.ViewHolder {
-        ImageView storyImageView;
+        ImageView storyImageView, voice1Icon,voice2Icon;
         TextView titleTextView;
 
         public StoryViewHolder(View itemView) {
@@ -82,6 +100,8 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
             // Initialize views from story_card.xml
             storyImageView = itemView.findViewById(R.id.imageView);
             titleTextView = itemView.findViewById(R.id.textView3);
+            voice1Icon=itemView.findViewById(R.id.voice_1);
+            voice2Icon=itemView.findViewById(R.id.voice_2);
         }
     }
 }
