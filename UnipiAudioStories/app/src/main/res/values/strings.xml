@@ -2,7 +2,12 @@
     <string name="app_name">Tell-a-Tale</string>
     <string name="app_title">Tell-a-Tale</string>
     <string name="title_activity_stories_main">stories_main</string>
-    <string name="audible_str">Audible Stories</string>
+    <string name="audible_page_string">Audible Stories</string>
     <string name="motto">Guiding little dreamers through starry tales</string>
     <string name="stats_title">Statistics</string>
+    <string name="favourites_page_title">Favourites</string>
+    <string name="stats_1">Total Story Listens</string>
+    <string name="stats_2">Most Listened Story</string>
+    <string name="stats_3">Most Recently Listened Story</string>
+    <string name="stats_4">Last Time Story Was Listened</string>
 </resources>

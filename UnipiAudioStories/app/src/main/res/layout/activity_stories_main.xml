@@ -16,7 +16,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/source_serif_pro_semibold"
-        android:text="@string/audible_str"
+        android:text="@string/audible_page_string"
         android:textColor="#E1E0D3"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"

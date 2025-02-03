@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/source_serif_pro_semibold"
-        android:text="Favourites"
+        android:text="@string/favourites_page_title"
         android:textColor="#E1E0D3"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
