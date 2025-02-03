@@ -30,6 +30,7 @@
         android:background="#00FFFFFF"
         android:paddingBottom="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/nav_bar_base"
         tools:srcCompat="@drawable/nav_bar_base" />
@@ -49,12 +50,9 @@
         android:id="@+id/statsIcon"
         android:layout_width="40dp"
         android:layout_height="0dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/favouritesIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/favouritesIcon"
         app:srcCompat="@drawable/selected_stats"
         tools:srcCompat="@drawable/selected_stats" />
 
@@ -62,9 +60,8 @@
         android:id="@+id/homeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/favouritesIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/home"
         tools:srcCompat="@drawable/home" />
@@ -102,7 +99,7 @@
                 android:text="@string/stats_1"
                 android:textColor="#76ABC1"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@+id/total_listened"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/total_listened"
                 app:layout_constraintTop_toTopOf="parent" />

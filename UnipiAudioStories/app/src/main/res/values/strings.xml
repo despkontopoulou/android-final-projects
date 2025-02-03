@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Tell-a-Tale</string>
-    <string name="app_title">Tell-a-Tale</string>
-    <string name="title_activity_stories_main">stories_main</string>
+    <string name="app_name" translatable="false">Tell-a-Tale</string>
+    <string name="app_title" translatable="false">Tell-a-Tale</string>
     <string name="audible_page_string">Audible Stories</string>
-    <string name="motto">Guiding little dreamers through starry tales</string>
+    <string name="motto" translatable="false">Guiding little dreamers through starry tales</string>
     <string name="stats_title">Statistics</string>
     <string name="favourites_page_title">Favourites</string>
     <string name="stats_1">Total Story Listens</string>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audible_page_string">Ηχητικές Ιστορίες</string>
+    <string name="stats_title">Στατιστικά</string>
+    <string name="favourites_page_title">Αγαπημένα</string>
+    <string name="stats_1">Συνολικές Ακροάσεις Ιστοριών</string>
+    <string name="stats_2">Η Πιο Ακουσμένη Ιστορία</string>
+    <string name="stats_3">Η Πιο Πρόσφατη Ιστορία</string>
+    <string name="stats_4">Τελευταια Ακρόαση Ιστορίας</string>
+</resources>

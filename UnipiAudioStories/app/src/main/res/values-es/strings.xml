@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="audible_page_string">Historias Audibles</string>
+    <string name="stats_title">Estadísticas</string>
+    <string name="favourites_page_title">Favoritos</string>
+    <string name="stats_1">Total de Escuchas de Historias</string>
+    <string name="stats_2">Historia más escuchada</string>
+    <string name="stats_3">Historia escuchada más recientemente</string>
+    <string name="stats_4">Última vez que se escuchó una historia</string>
+</resources>

@@ -49,7 +49,7 @@
             android:text="The Dark is Friendly"
             android:textAlignment="viewStart"
             android:textColor="#2F5871"
-            android:textSize="23sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
