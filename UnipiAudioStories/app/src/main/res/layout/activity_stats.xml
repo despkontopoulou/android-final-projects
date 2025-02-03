@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_2"
+    android:elevation="10dp"
+    tools:context=".activities.StatsActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/source_serif_pro_semibold"
+        android:text="@string/stats_title"
+        android:textColor="#E1E0D3"
+        android:textSize="45sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:background="#00FFFFFF"
+        android:paddingBottom="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/nav_bar_base"
+        tools:srcCompat="@drawable/nav_bar_base" />
+
+    <ImageView
+        android:id="@+id/favouritesIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/star"
+        tools:srcCompat="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/statsIcon"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/favouritesIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/favouritesIcon"
+        app:srcCompat="@drawable/selected_stats"
+        tools:srcCompat="@drawable/selected_stats" />
+
+    <ImageView
+        android:id="@+id/homeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/home"
+        tools:srcCompat="@drawable/home" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="977dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="368dp"
+        android:layout_height="461dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#F8F3E1"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/total_listened_label"
+                android:layout_width="360dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="Total Story Listens"
+                android:textColor="#76ABC1"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/total_listened"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/total_listened"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/total_listened"
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/crimson_text"
+                android:text="100"
+                android:textColor="#2B538E"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/most_listened_label"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/total_listened_label"
+                app:layout_constraintStart_toStartOf="@+id/most_listened_label"
+                app:layout_constraintTop_toBottomOf="@+id/total_listened_label" />
+
+            <TextView
+                android:id="@+id/most_listened_label"
+                android:layout_width="360dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="Most Listened Story:"
+                android:textColor="#76ABC1"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/most_listened"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/total_listened"
+                app:layout_constraintStart_toStartOf="@+id/most_listened"
+                app:layout_constraintTop_toBottomOf="@+id/total_listened" />
+
+            <TextView
+                android:id="@+id/most_listened"
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/crimson_text"
+                android:text="The Dark is Friendly"
+                android:textColor="#2B538E"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/most_recent_label"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/most_recent_label"
+                app:layout_constraintTop_toBottomOf="@+id/most_listened_label" />
+
+            <TextView
+                android:id="@+id/most_recent_label"
+                android:layout_width="360dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="Most Recently Listened Story"
+                android:textColor="#76ABC1"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/most_recent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/most_recent"
+                app:layout_constraintTop_toBottomOf="@+id/most_listened" />
+
+            <TextView
+                android:id="@+id/timestamp_label"
+                android:layout_width="360dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/source_serif_pro_semibold"
+                android:text="Last Time a Story Was Listened"
+                android:textColor="#76ABC1"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="@+id/timestamp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/most_recent"
+                app:layout_constraintStart_toStartOf="@+id/timestamp"
+                app:layout_constraintTop_toBottomOf="@+id/most_recent" />
+
+            <TextView
+                android:id="@+id/timestamp"
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/crimson_text"
+                android:text="Timestamp"
+                android:textColor="#2B538E"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timestamp_label" />
+
+            <TextView
+                android:id="@+id/most_recent"
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/crimson_text"
+                android:text="The Little Joy Garden"
+                android:textColor="#2B538E"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/timestamp_label"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/timestamp_label"
+                app:layout_constraintTop_toBottomOf="@+id/most_recent_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,56 +15,75 @@
         android:background="#F9F4E8">
 
         <!-- Image of the story (existing) -->
-        <ImageView
-            android:id="@+id/imageView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="116dp"
             android:layout_height="129dp"
-            android:layout_marginStart="4dp"
-            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/placeholder" />
+        </androidx.cardview.widget.CardView>
 
         <!-- Title TextView of the story (existing) -->
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="257dp"
-            android:layout_height="54dp"
-            android:layout_margin="16dp"
-            android:fontFamily="@font/source_serif_pro"
-            android:padding="10dp"
-            android:text="TextView"
-            android:textColor="#2F5871"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Voice 1 Icon -->
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="290dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/source_serif_pro"
+            android:padding="10dp"
+            android:text="The Dark is Friendly"
+            android:textAlignment="viewStart"
+            android:textColor="#2F5871"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/voice_1"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/voice_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/voice_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Voice 2 Icon -->
         <ImageView
             android:id="@+id/voice_2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/voice_2"
-            app:layout_constraintEnd_toStartOf="@id/voice_1"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/voice_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/voice_1" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="30dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/not_favourite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/voice_2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -41,39 +41,43 @@
         android:paddingBottom="-10dp"
         app:layout_constraintStart_toStartOf="@+id/storyRecyclerView"
         app:layout_constraintTop_toBottomOf="@+id/storyRecyclerView"
-        app:srcCompat="@drawable/nav_bar_base" />
+        app:srcCompat="@drawable/nav_bar_base"
+        tools:srcCompat="@drawable/nav_bar_base" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/favouritesIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/star" />
+        app:srcCompat="@drawable/star"
+        tools:srcCompat="@drawable/star" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/statsIcon"
         android:layout_width="40dp"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintBottom_toBottomOf="@+id/favouritesIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:srcCompat="@drawable/stats" />
+        app:layout_constraintTop_toTopOf="@+id/favouritesIcon"
+        app:srcCompat="@drawable/stats"
+        tools:srcCompat="@drawable/stats" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/homeIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/selected_home" />
+        app:srcCompat="@drawable/selected_home"
+        tools:srcCompat="@drawable/selected_home" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

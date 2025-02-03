@@ -14,17 +14,23 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.despkontopoulou.tell_a_tale.R;
 import com.despkontopoulou.tell_a_tale.helpers.Chapter;
+import com.despkontopoulou.tell_a_tale.helpers.NavBar;
 import com.despkontopoulou.tell_a_tale.helpers.Story;
 import com.despkontopoulou.tell_a_tale.helpers.StoryRepository;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class StoryPage extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class StoryPage extends NavBar implements TextToSpeech.OnInitListener {
     private TextToSpeech tts;
     private String selectedVoice = "voice_1"; //default
     private int currentChapterIndex = 0;
@@ -43,14 +49,13 @@ public class StoryPage extends AppCompatActivity implements TextToSpeech.OnInitL
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        setupNavigation();
         chapterImage = findViewById(R.id.chapterImage);
         chapterText = findViewById(R.id.chapterText);
         storyTitle = findViewById(R.id.textView6);
         arrowLeft = findViewById(R.id.arrowLeft);
         arrowRight = findViewById(R.id.arrowRight);
         storyRepository = new StoryRepository(this);
-        //voice1Icon = findViewById(R.id.voice_1);
-        //voice2Icon = findViewById(R.id.voice_2);
         tts = new TextToSpeech(this, this);
 
         // Get selectedVoice from the Intent
@@ -104,17 +109,17 @@ public class StoryPage extends AppCompatActivity implements TextToSpeech.OnInitL
         if (tts == null) return;
 
         for (Voice availableVoice : tts.getVoices()) {
-            if (voice.equals("voice_1") && availableVoice.getName().contains("en-us")) {
+            if (voice.equals("voice_1") && availableVoice.getName().contains("en-gb")) {
                 tts.setVoice(availableVoice);
+                //Toast.makeText(this, "En-gb voice found", Toast.LENGTH_SHORT).show();
                 return;
-            } else if (voice.equals("voice_2") && availableVoice.getName().contains("en-gb")) {
+            } else if (voice.equals("voice_2") && availableVoice.getName().contains("en-in")) {//male
                 tts.setVoice(availableVoice);
+                //Toast.makeText(this, "En-ca voice found", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-
-        // Fallback to default if the desired voice is not available
-        Log.e("TTS", "Desired voice not found. Using default.");
+        Toast.makeText(this, "Voice not found, using system default", Toast.LENGTH_SHORT).show();
     }
     // Load chapters (You can replace this with your actual data)
     private void loadStoryData() {
@@ -146,9 +151,13 @@ public class StoryPage extends AppCompatActivity implements TextToSpeech.OnInitL
         if (chapters != null && index >= 0 && index < chapters.size()) {
             Chapter currentChapter = chapters.get(index);
             chapterText.setText(currentChapter.getText());
+            //rounded corners
+            RequestOptions requestOptions = new RequestOptions()
+                    .transform(new CenterCrop(), new RoundedCorners(30));
 
             Glide.with(this)
                     .load(currentChapter.getPicture())
+                    .apply(requestOptions)
                     .into(chapterImage);
             speakText(currentChapter.getText());
             // Disable buttons based on chapter index

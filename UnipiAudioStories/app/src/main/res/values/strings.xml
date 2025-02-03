@@ -4,4 +4,5 @@
     <string name="title_activity_stories_main">stories_main</string>
     <string name="audible_str">Audible Stories</string>
     <string name="motto">Guiding little dreamers through starry tales</string>
+    <string name="stats_title">Statistics</string>
 </resources>
