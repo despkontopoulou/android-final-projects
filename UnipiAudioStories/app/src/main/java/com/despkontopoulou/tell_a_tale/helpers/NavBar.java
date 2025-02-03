@@ -13,14 +13,14 @@ import com.despkontopoulou.tell_a_tale.activities.StoriesMainActivity;
 public abstract class NavBar extends AppCompatActivity {
     protected ImageView homeIcon, favouritesIcon, statsIcon;
     public void setupNavigation(){
-        homeIcon=findViewById(R.id.homeIcon);
+        homeIcon=findViewById(R.id.homeIcon);//finds icons in view
         favouritesIcon=findViewById(R.id.favouritesIcon);
         statsIcon=findViewById(R.id.statsIcon);
-        homeIcon.setOnClickListener(view -> navigateTo(StoriesMainActivity.class));
+        homeIcon.setOnClickListener(view -> navigateTo(StoriesMainActivity.class));//sets click listeners for redirection to them using navigate to
         favouritesIcon.setOnClickListener(view -> navigateTo(FavouritesActivity.class));
         statsIcon.setOnClickListener(view -> navigateTo(StatsActivity.class));
     }
-    private void navigateTo(Class<?> targetActivity) {
+    private void navigateTo(Class<?> targetActivity) {//navigates to activity of parameter
         Intent intent = new Intent(this, targetActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);//prevents unnecessary duplicate activities by reopening them if they exist
         startActivity(intent);

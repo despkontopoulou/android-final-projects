@@ -32,7 +32,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
 
     @NonNull
     @Override
-    public StoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public StoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {//creates a storyview holder
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.story_card, parent, false);
         return new StoryViewHolder(view);
@@ -42,48 +42,41 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     public void onBindViewHolder(@NonNull StoryAdapter.StoryViewHolder holder, int position) {
         Story story = stories.get(position);
 
-        // Set the story title
-        holder.titleTextView.setText(story.getTitle());
+        holder.titleTextView.setText(story.getTitle());// set the story title
 
-        // Load the image of the first chapter (if available)
+        // load the image of the first chapter
         if (story.getChapters() != null && !story.getChapters().isEmpty()) {
-            Chapter firstChapter = story.getChapters().get(0);  // Get the first chapter
+            Chapter firstChapter = story.getChapters().get(0);  // gett first chapter
             if (firstChapter.getPicture() != null && !firstChapter.getPicture().isEmpty()) {
                 Glide.with(context)
-                        .load(firstChapter.getPicture())  // Load the first chapter's image
+                        .load(firstChapter.getPicture())
                         .into(holder.storyImageView);
             } else {
-                // Optional: Set a placeholder if no image is found
                 holder.storyImageView.setImageResource(R.drawable.placeholder);
             }
         } else {
-            // Optional: Set a placeholder if the story has no chapters
             holder.storyImageView.setImageResource(R.drawable.placeholder);
         }
-
+//favourite button functionality hidden if in favourites activity
         boolean favouriteStatus=favouriteStatus(story.getId());
         setFavouriteStatus(holder.star, favouriteStatus);
         if (context instanceof FavouritesActivity) {
-            // Hide the star icon in FavouritesActivity
             holder.star.setVisibility(View.GONE);
         } else {
-            // Otherwise, make the star icon clickable as usual
             holder.star.setVisibility(View.VISIBLE);
 
-            // Set star click listener
+            //star click functionality
             holder.star.setOnClickListener(v -> {
                 boolean newStatus = !favouriteStatus(story.getId());
-                saveFavourite(story.getId(), newStatus); // Save updated favourite status
-                setFavouriteStatus(holder.star, newStatus); // Update UI
+                saveFavourite(story.getId(), newStatus);
+                setFavouriteStatus(holder.star, newStatus);
             });
         }
 
-        // Set click listener for the story item
+        // set click listener for the story item
         holder.itemView.setOnClickListener(v -> {
-            // Create an Intent to navigate to StoryPage
+            // Intent to navigate to StoryPage
             Intent intent = new Intent(context, StoryPage.class);
-
-            // Pass the storyId to the StoryPage
             intent.putExtra("storyId", story.getId());
             context.startActivity(intent);
         });
@@ -96,9 +89,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
             navigateToStoryPage(story, "voice_2");
         });
 
-        // Click listener for the card itself (default voice)
+        // click listener for the card, default female
         holder.itemView.setOnClickListener(v -> {
-            navigateToStoryPage(story, "voice_1"); // Default to voice_1
+            navigateToStoryPage(story, "voice_1");
         });
 
     }
@@ -111,26 +104,25 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
         SharedPreferences prefs = context.getSharedPreferences("Stats", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
-        // Track total listened stories
+        // track total listened stories
         int totalStories = prefs.getInt("total_listened", 0);
         editor.putInt("total_listened", totalStories + 1);
 
-        // Track most recently listened story
+        // track most recently listened story
         editor.putString("recent_story", story.getTitle());
 
-        // Track last listened timestamp
+        // rack last listened timestamp
         editor.putLong("last_listened_time", System.currentTimeMillis());
 
-        // Update most listened story
+        // update most listened story
         String mostListened = prefs.getString("most_listened_story", "");
         int mostListenedCount = prefs.getInt("most_listened_count", 0);
 
-        // Get current listen count of this story
+
         int currentCount = prefs.getInt("story_count_" + story.getId(), 0);
         currentCount++;
         editor.putInt("story_count_" + story.getId(), currentCount);
-
-        // Update most listened if necessary
+        // Update most listened
         if (currentCount > mostListenedCount) {
             editor.putString("most_listened_story", story.getTitle());
             editor.putInt("most_listened_count", currentCount);
@@ -138,8 +130,8 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
 
         editor.apply();
         Intent intent = new Intent(context, StoryPage.class);
-        intent.putExtra("storyId", story.getId()); // Pass storyId to StoryPage
-        intent.putExtra("selectedVoice", selectedVoice); // Pass selectedVoice to StoryPage
+        intent.putExtra("storyId", story.getId()); // pass storyId to StoryPage
+        intent.putExtra("selectedVoice", selectedVoice); // pass selectedVoice to StoryPage
         context.startActivity(intent);
     }
     public static class StoryViewHolder extends RecyclerView.ViewHolder {
@@ -148,7 +140,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
 
         public StoryViewHolder(View itemView) {
             super(itemView);
-            // Initialize views from story_card.xml
+            // init views from story_card.xml
             storyImageView = itemView.findViewById(R.id.imageView);
             titleTextView = itemView.findViewById(R.id.textView3);
             voice1Icon=itemView.findViewById(R.id.voice_1);

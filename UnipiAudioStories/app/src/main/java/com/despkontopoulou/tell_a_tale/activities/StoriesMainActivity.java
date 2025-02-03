@@ -42,18 +42,18 @@ public class StoriesMainActivity extends NavBar {
         RecyclerView recyclerView = findViewById(R.id.storyRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize adapter with an empty list initially
+        // init adapter with an empty list initially
         StoryAdapter storyAdapter = new StoryAdapter(this, storyList);
         recyclerView.setAdapter(storyAdapter);
 
-        // Fetch stories from Firebase
+        // fetch stories
         storyRepository.getStories(new StoryRepository.StoryResponse() {
             @Override
             public void onSuccess(List<Story> stories) {
-                // Update the existing list instead of reassigning the adapter
+                // update the existing list instead of reassigning the adapter
                 storyList.clear();
                 storyList.addAll(stories);
-                storyAdapter.notifyDataSetChanged(); // Notify RecyclerView of data change
+                storyAdapter.notifyDataSetChanged();
             }
 
             @Override
