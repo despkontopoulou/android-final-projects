@@ -179,7 +179,6 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
             newFaves.remove(storyId);
         }
         editor.putStringSet("favourite_stories", newFaves);
-        editor.putInt("total_favourites", newFaves.size()); // Update total favourite count
         editor.apply();
     }
 }

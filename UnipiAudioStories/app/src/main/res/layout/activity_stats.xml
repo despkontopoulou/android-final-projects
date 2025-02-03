@@ -152,7 +152,7 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/source_serif_pro_semibold"
-                android:text="Most Recently Listened Story"
+                android:text="@string/stats_3"
                 android:textColor="#76ABC1"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="@+id/most_recent"
